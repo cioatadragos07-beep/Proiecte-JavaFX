@@ -1,0 +1,11 @@
+// la inceput ma duc in project structure apoi la libraries si acolo adaug tot din java SDK 21.0.8 /lib
+// dupa ce fac mainu ma duc la run edit configurations la clasa bag main si dupa adaug vm options si scriu --module-path /opt/java-sdk-21.0.8/lib --add-modules javafx.controls,javafx.fxml;
+// incep prin adaugand
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+// astea de mai sus is de a face aplicatia, scena si stage-ul, practic tot ce am nevoie pentru inceput;
+// acuma vin librarile care depind de ce am nevie sa fac;
+import javafx.scene.layout.HBox; (Horizontal box)
+import javafx.scene.layout.VBox; (Vertical box)
+import javafx.scene.control.Textfile sau label sau button sau orice altceva;
