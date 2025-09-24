@@ -1,0 +1,57 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+
+public class Main extends Application{
+    @Override
+    public void start(Stage primaryStage){
+        VBox vbx = new VBox(10);
+
+        TextField txt1 = new TextField();
+        txt1.setPrefWidth(100);
+        txt1.setMaxWidth(100);
+        txt1.setMinWidth(50);
+        TextField txt2 = new TextField();
+        txt2.setPrefWidth(100);
+        txt2.setMaxWidth(700);
+        txt2.setMinWidth(50);
+        txt2.setEditable(false)
+        ;
+        Button btn1 = new Button("Calculeaza!");
+        btn1.setOnAction(e ->{
+            String text = txt1.getText();
+            String[] parti = text.split(" ");
+            int a = Integer.parseInt(parti[0]);
+            int b = Integer.parseInt(parti[1]);
+            int c = Integer.parseInt(parti[2]);
+            int delta = b*b - 4*a*c;
+            if(delta < 0){
+                txt2.setText("Nu are solutii reale");
+            }
+            if(delta == 0){
+                double x = (-b + Math.sqrt(delta))/2*a;
+                txt2.setText("Solutiile sunt:" + " " + x);
+            }
+            if(delta > 0){
+                double x1 = (-b + Math.sqrt(delta))/2*a;
+                double x2 = (-b - Math.sqrt(delta))/2*a;
+                txt2.setText("Solutiile sunt:" + " " + x1 + " " + x2);
+            }
+        });
+
+        vbx.getChildren().addAll(txt1, txt2, btn1);
+
+        Scene scene = new Scene(vbx, 700, 500);
+
+        primaryStage.setTitle("calculator formula quadratica");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+    public static void main(String[] args){
+        launch(args);
+    }
+}
