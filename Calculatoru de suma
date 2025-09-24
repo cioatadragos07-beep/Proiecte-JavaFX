@@ -1,0 +1,47 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+
+public class Main extends Application{
+    @Override
+    public void start(Stage primaryStage){
+        VBox vbox = new VBox(10);
+
+        HBox hbo = new HBox();
+
+        Scene scene = new Scene(vbox, 300, 200);
+
+        TextField text1 = new TextField();
+        TextField text2 = new TextField();
+        TextField text3 = new TextField();
+        text1.setPrefSize(100, 100);
+        text1.setMaxWidth(50);
+        text2.setPrefSize(100, 100);
+        text2.setMaxWidth(50);
+        text3.setPrefSize(100, 100);
+        text3.setMaxWidth(100);
+        text3.setEditable(false);
+
+        Button btn1 = new Button("Adunale!");
+        btn1.setOnAction(event ->{
+            int a = Integer.parseInt(text1.getText());
+            int b = Integer.parseInt(text2.getText());
+            int suma = a + b;
+            text3.setText("Suma:" + " " + suma);
+        });
+
+        vbox.getChildren().addAll(hbo, btn1);
+        hbo.getChildren().addAll(text1, text2, text3);
+
+        primaryStage.setTitle("Calculator");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+    public static void main(String[] args){
+        launch(args);
+    }
+}
